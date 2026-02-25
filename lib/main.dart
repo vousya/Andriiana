@@ -46,7 +46,7 @@ class LovePage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
-                  "Hi My Love ❤️",
+                  "Здоров сладуля ❤️",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 42,
@@ -56,10 +56,10 @@ class LovePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  "This little website is just for you.\n\n"
-                  "Every line of code was written with love.\n"
-                  "Every pixel on this page reminds me how lucky I am.\n\n"
-                  "Thank you for being my happiness, my peace, and my forever. 💕",
+                  "Ееееее ну цейвово...\n\n"
+                  "Я скучив трохи...\n"
+                  "Ну добре не трохи\n\n"
+                  "Люблю тебе пупс 💕",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20,
@@ -67,12 +67,12 @@ class LovePage extends StatelessWidget {
                     height: 1.6,
                   ),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 240),
                 const Text(
-                  "I love you more than all the bugs in my code 😄❤️",
+                  "Покусаю тебе скоро❤️",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 12,
                     fontStyle: FontStyle.italic,
                     color: Colors.white70,
                   ),
