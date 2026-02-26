@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
-import '../../../data/models/project_model.dart';
+
+import '../../../../data/models/project_model.dart';
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/constants/app_styles.dart';
+
 
 class ProjectFileIcon extends StatefulWidget {
   final Project project;
@@ -30,27 +33,25 @@ class _ProjectFileIconState extends State<ProjectFileIcon> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // The "File Icon" box
               Container(
-                width: 100,
+                width: 220,
                 height: 120,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.05),
+                  color: AppColors.white.withOpacity(0.05),
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.white.withOpacity(isHovered ? 0.5 : 0.1)),
+                  border: Border.all(color: AppColors.white.withOpacity(isHovered ? 0.5 : 0.1)),
                   image: DecorationImage(
                     image: NetworkImage(widget.project.imagePath),
                     fit: BoxFit.cover,
-                    opacity: 0.6,
+                    opacity: 1,
                   ),
-                ),
-                child: const Icon(Icons.insert_drive_file_outlined, color: Colors.white, size: 40),
+                )
               ),
               const SizedBox(height: 8),
               Text(
                 widget.project.title,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
+                style: AppStyles.body,
               ),
             ],
           ),
