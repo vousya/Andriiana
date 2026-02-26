@@ -3,7 +3,7 @@ class Project {
   final String title;
   final String date;
   final String description;
-  final String imagePath; // Path to cover image
+  final String imagePath;
   final List<String> tools;
 
   Project({

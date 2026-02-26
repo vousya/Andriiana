@@ -4,6 +4,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import '../../core/utils/responsive.dart';
 import '../../data/projects_data.dart';
 import 'widgets/project_file_icon.dart';
+import '../../core/constants/app_styles.dart';
+import '../../core/widgets/custom_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -66,35 +68,71 @@ class HeroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Responsive(
+      // DESKTOP LAYOUT (Side by side)
       desktop: Padding(
-        padding: const EdgeInsets.all(80.0),
+        padding: const EdgeInsets.symmetric(horizontal: 80.0, vertical: 60),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Replace with your wife's photo asset
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Image.asset('assets/images/profile_photo.jpg', width: 350, fit: BoxFit.cover),
-            ).animate().slideX(begin: -0.2, curve: Curves.easeOut),
+            _buildImage(),
             const SizedBox(width: 60),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("ПРИВІТ", style: GoogleFonts.montserrat(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 20),
-                  Text(
-                    "Мене звати Андріяна. Навчаюсь на другому курсі 'Маркетинг'. У світі СММ я вже 2 роки...",
-                    style: GoogleFonts.montserrat(color: Colors.white70, fontSize: 18, height: 1.6),
-                  ),
-                ],
-              ).animate().fadeIn(delay: 400.ms),
-            ),
+            Expanded(child: _buildTextContent(context, isMobile: false)),
           ],
         ),
       ),
-      mobile: Column( /* Simple Column layout for mobile */ ),
+      
+      // MOBILE LAYOUT (Stacked)
+      mobile: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            _buildImage(),
+            const SizedBox(height: 30),
+            _buildTextContent(context, isMobile: true),
+          ],
+        ),
+      ),
     );
+  }
+
+  Widget _buildImage() {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(15),
+      child: Image.asset(
+        'assets/images/profile_photo.jpg',
+        width: 300,
+        fit: BoxFit.cover,
+      ),
+    ).animate().fadeIn(duration: 800.ms).slideX(begin: -0.1);
+  }
+
+  Widget _buildTextContent(BuildContext context, {required bool isMobile}) {
+    return Column(
+      crossAxisAlignment: isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Привіт",
+          style: AppStyles.h1.copyWith(fontSize: isMobile ? 32 : 48),
+        ),
+        const SizedBox(height: 10),
+        Text(
+          "Мене звати Андріяна",
+          style: AppStyles.h2.copyWith(fontSize: isMobile ? 20 : 32),
+        ),
+        const SizedBox(height: 20),
+        Text(
+          "Навчаюсь на другому курсі 'Маркетинг'. Захоплююсь творчістю у всіх її проявах. "
+          "У світі СММ я вже 2 роки, і це стало моєю справжньою пристрастю.",
+          textAlign: isMobile ? TextAlign.center : TextAlign.left,
+          style: AppStyles.body,
+        ),
+        const SizedBox(height: 30),
+        CustomButton(
+          text: "ПРАЦЮВАТИ РАЗОМ", 
+          onTap: () { /* Scroll to contact */ }
+        ),
+      ],
+    ).animate().fadeIn(delay: 300.ms);
   }
 }
 

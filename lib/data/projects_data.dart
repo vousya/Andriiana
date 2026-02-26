@@ -6,7 +6,7 @@ final List<Project> allProjects = [
     title: 'Vash Lavash',
     date: 'травень 2024 - листопад 2024',
     description: 'SMM Strategy, content planning, and visual identity for a bakery chain.',
-    imagePath: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=500', // Replace with local asset
+    imagePath: 'assets/images/project_images/vash_lavash.jpg',
     tools: ['Instagram', 'CapCut', 'Canva'],
   ),
   Project(
@@ -14,7 +14,7 @@ final List<Project> allProjects = [
     title: 'Beauty Studio',
     date: 'січень 2024 - квітень 2024',
     description: 'Full social media management and aesthetic content creation.',
-    imagePath: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=500',
+    imagePath: 'assets/images/project_images/vesna_care.png',
     tools: ['Reels', 'Pinterest'],
   ),
   // Add more here...
